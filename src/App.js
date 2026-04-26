@@ -4,12 +4,14 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Interest from "./pages/Interest";
 import Header from "./components/Header";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
       <Body>
         <Header />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
