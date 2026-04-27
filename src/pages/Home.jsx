@@ -10,10 +10,10 @@ const Home = () => {
       <H.Container>
         <img src="syt.png" />
         <H.Box>
-          <h3>
+          <p>
             제가 어떤 사람인지 <br /> 궁금하시다면 <br />
             👇아래 버튼을 눌러보세용👇
-          </h3>
+          </p>
           <Button onClick={() => navigate("/profile")}>소개 보러 가기</Button>
         </H.Box>
       </H.Container>

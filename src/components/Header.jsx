@@ -17,9 +17,18 @@ function Header() {
       <H.NavItem to="/interest" $active={pathname === "/interest"}>
         Interest
       </H.NavItem>
-      <H.InstaButton href="https://www.instagram.com/jiy.oeo/">
+      <H.Homepages>
         🔎
-      </H.InstaButton>
+        <H.PageList>
+          <H.PageItem href="https://www.instagram.com/jiy.oeo/">
+            Instagram
+          </H.PageItem>
+          <H.PageItem href="https://blog.naver.com/jiyoeo">
+            Naver Blog
+          </H.PageItem>
+          <H.PageItem href="https://velog.io/@jiyoeo/posts">Velog</H.PageItem>
+        </H.PageList>
+      </H.Homepages>
     </H.HeaderContainer>
   );
 }
