@@ -21,8 +21,9 @@ export const Box = styled.div`
   justify-content: center;
   gap: 24px;
 
-  h3 {
-    font-size: 24px;
+  p {
+    font-size: 20px;
+    font-weight: 500;
     text-align: center;
   }
 `;
