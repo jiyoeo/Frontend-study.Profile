@@ -13,7 +13,7 @@ export const S_box = styled.div`
   padding: 20px;
   box-shadow: 0 4px 10px rgb(0, 0, 0, 0.1);
   margin-top: 30px;
-  width: 250px;
+  width: 50%;
   line-height: 0.8;
 `;
 
@@ -64,7 +64,7 @@ export const D_box = styled.div`
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
   margin-bottom: 30px;
-  width: 100vh;
+  width: 95%;
   line-height: 1.5;
 `;
 

@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
 
 export const HeaderText = styled.h2`
   font-size: 30px;
-  color: #d6daf0;
+  color: #bac2f1;
   font-family: "OkMallangW", sans-serif;
 
   &:hover {
@@ -37,7 +37,7 @@ export const NavItem = styled(Link)`
 `;
 
 export const Homepages = styled.div`
-  position: relative;
+  position: relative; //position: absolute 부모요소
   display: inline-flex;
   align-items: center;
   cursor: pointer;
