@@ -42,17 +42,16 @@ export const Homepages = styled.div`
   align-items: center;
   cursor: pointer;
   font-size: 25px;
-
-  &:hover > div {
-    display: flex;
-  }
 `;
 
 export const PageList = styled.div`
-  display: none; //평소엔 안 보이다가 마우스 올렸을 때 보이게, 부모 요소에서 결정.
+  display: ${(props) =>
+    props.$show
+      ? "flex"
+      : "none"}; //평소엔 안 보이다가 마우스 올렸을 때 보이게, 부모 요소에서 결정.
   position: absolute; //리스트가 펼쳐져도 타 요소에 영향 안 주게
 
-  top: 100%; //리스트 상단이 부모 제일 하단에 붙도록
+  top: calc(100% + 8px); //리스트 상단이 부모 제일 하단에 붙도록
   left: 50%; //리스트 왼쪽 모서리가 부모 가운데에 붙도록
   transform: translateX(
     -50%
@@ -63,13 +62,11 @@ export const PageList = styled.div`
 
 export const PageItem = styled.a`
   padding: 6px 11px;
-  margin: 2px 0 2px 0;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: #000000;
-  background-color: #ffffff80;
+  background-color: #ffffff;
   border: 2px solid #d6daf0;
-  border-radius: 10px;
   text-decoration: none;
   white-space: nowrap;
 

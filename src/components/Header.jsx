@@ -5,6 +5,11 @@ import * as H from "../styles/header.styles";
 function Header() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]); //주소창의 주소가 바뀔 때마다!
 
   return (
     <H.HeaderContainer>
@@ -17,9 +22,9 @@ function Header() {
       <H.NavItem to="/interest" $active={pathname === "/interest"}>
         Interest
       </H.NavItem>
-      <H.Homepages>
+      <H.Homepages onClick={() => setIsOpen(!isOpen)}>
         🔎
-        <H.PageList>
+        <H.PageList $show={isOpen}>
           <H.PageItem href="https://www.instagram.com/jiy.oeo/">
             Instagram
           </H.PageItem>
