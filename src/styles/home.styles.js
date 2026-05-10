@@ -11,6 +11,15 @@ export const Container = styled.div`
     max-width: 420px;
     display: block;
     margin: 20px 20px;
+
+    @media (max-width: 480px) {
+      margin: 40px 0 10px 0;
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
   }
 `;
 

@@ -24,6 +24,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'JoseonGulim', sans-serif;
+    background-color: #ecdff2;
+    min-height: 100vh;
+    box-sizing: border-box;
   }
 `;
 

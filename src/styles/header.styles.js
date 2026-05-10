@@ -1,16 +1,22 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+const fluidGap = "clamp(5px, 15vw, 500px)";
+
 export const HeaderContainer = styled.header`
   width: 100%;
-  padding: 0 40px;
+  padding: 0 5vw;
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 100px;
-
+  justify-content: center;
+  gap: ${fluidGap};
   background-color: #282a42;
+
+  @media (max-width: 480px) {
+    justify-content: space-between;
+    gap: 0;
+  }
 `;
 
 export const HeaderText = styled.h2`
@@ -72,5 +78,36 @@ export const PageItem = styled.a`
 
   &:hover {
     background-color: #d6daf0;
+  }
+`;
+
+export const Hamburger = styled.div`
+  display: none; // 기본적으로는 안 보임
+  font-size: 30px;
+  color: #bac2f1;
+  z-index: 101;
+
+  @media (max-width: 480px) {
+    display: block;
+  }
+`;
+
+export const NavWrapper = styled.nav`
+  display: flex;
+  align-items: center;
+  gap: ${fluidGap};
+
+  @media (max-width: 480px) {
+    margin-left: 0;
+    display: ${(props) => (props.$isMenuOpen ? "flex" : "none")};
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background-color: #282a42;
+    padding: 20px 0;
+    gap: 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
 `;
