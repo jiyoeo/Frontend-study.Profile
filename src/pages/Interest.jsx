@@ -9,22 +9,22 @@ function Interest() {
     <Container>
       <VideoGrid>
         <iframe
-          src="https://www.youtube.com/embed/rJPmwazTANc"
+          src="https://www.youtube.com/embed/7Q1wV_y3yRQ"
           frameBorder="0"
           allowFullScreen
         />
         <iframe
-          src="https://www.youtube.com/embed/btyDXMhhxZo"
+          src="https://www.youtube.com/embed/SGjGQlNdUb4"
           frameBorder="0"
           allowFullScreen
         />
         <iframe
-          src="https://www.youtube.com/embed/ATthSPLCVb4"
+          src="https://www.youtube.com/embed//OjqTAX-gaSo"
           frameBorder="0"
           allowFullScreen
         />
         <iframe
-          src="https://www.youtube.com/embed/BMflM6t2XcU"
+          src="https://www.youtube.com/embed//xoInosq3JBE"
           frameBorder="0"
           allowFullScreen
         />
@@ -37,11 +37,19 @@ function Interest() {
 export default Interest;
 
 const Container = styled.div`
-  height: 90vh;
+  height: calc(100vh - 100px);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 40px 0;
+
+  @media (max-width: 480px) {
+    padding: 20px 0;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+  }
 `;
 
 const VideoGrid = styled.div`
@@ -58,5 +66,10 @@ const VideoGrid = styled.div`
     aspect-ratio: 16 / 10;
     border: none;
     border-radius: 16px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 `;

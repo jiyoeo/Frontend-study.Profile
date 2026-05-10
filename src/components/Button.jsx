@@ -16,6 +16,7 @@ const Btn = styled.button`
   border: none;
   border-radius: 12px;
   margin-bottom: 30px;
+  color: #282a42;
 
   background-color: #ffffff;
   box-shadow: 0 4px 10px rgb(0, 0, 0, 0.1);

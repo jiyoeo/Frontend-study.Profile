@@ -4,6 +4,10 @@ export const Body = styled.div`
   background-color: #ecdff2;
   min-height: 100vh;
   margin-left: 30px;
+
+  @media (max-width: 480px) {
+    margin-left: 20px;
+  }
 `;
 
 export const S_box = styled.div`
@@ -13,7 +17,7 @@ export const S_box = styled.div`
   padding: 20px;
   box-shadow: 0 4px 10px rgb(0, 0, 0, 0.1);
   margin-top: 30px;
-  width: 50%;
+  width: 70%;
   line-height: 0.8;
 `;
 
