@@ -63,6 +63,10 @@ export const PageList = styled.div`
     -50%
   ); //X축으로 -50% 이동 => 위 코드 세개를 통해 부모요소와 함께 가운데 정렬 가능.
 
+  @media (max-width: 480px) {
+    top: 0;
+    left: calc(250% + 10px);
+  }
   flex-direction: column;
 `;
 
