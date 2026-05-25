@@ -55,7 +55,7 @@ function Profile() {
 
         if (error) throw error;
       } catch (err) {
-        alert("좋아요 취소 반영 실패");
+        alert(`좋아요 취소 반영 실패 원인: ${err.message || err}`);
       }
     } else {
       localStorage.setItem("Jiyeon_profile_liked", "true");
@@ -77,7 +77,7 @@ function Profile() {
 
         if (error) throw error;
       } catch (err) {
-        alert("DB 업데이트에 실패했습니다.", err);
+        alert(`DB 업데이트 실패 원인: ${err.message || err}`);
       }
     }
   };
