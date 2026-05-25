@@ -44,7 +44,7 @@ function Profile() {
       localStorage.removeItem("Jiyeon_profile_liked");
       setHasLiked(false);
 
-      const updatedLikeCount = like - 1 < 0 ? 0 : like - 1;
+      const updatedLikeCount = Math.max(0, like - 1);
       setLike(updatedLikeCount);
 
       try {
