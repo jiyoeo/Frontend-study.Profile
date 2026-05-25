@@ -94,7 +94,6 @@ function Profile() {
             <P.LikeButton
               onClick={handleLikeClick}
               $isClicked={isClicked || hasLiked}
-              disabled={hasLiked}
             >
               ♥<span> {like}</span>
             </P.LikeButton>
