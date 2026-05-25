@@ -1,21 +1,85 @@
 import * as P from "../styles/profile.styles.js";
 import Button from "../components/Button.jsx";
 
-import { useState } from "react"; //등호로 변경 안됨
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../supabaseClient.js";
 
 function Profile() {
   const navigate = useNavigate();
   const [like, setLike] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
+  const [hasLiked, setHasLiked] = useState(false);
 
-  const handleLikeClick = () => {
-    setLike(like + 1);
+  useEffect(() => {
+    const getInitialLikes = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("likes")
+          .select("count")
+          .eq("id", 1)
+          .single();
+
+        if (error) throw error;
+        if (data) setLike(data.count);
+      } catch (err) {
+        alert("좋아요 데이터를 가져오는데 실패하였습니다.");
+      }
+    };
+
+    const localLikedStatus = localStorage.getItem("Jiyeon_profile_liked");
+
+    if (localLikedStatus === "true") {
+      setHasLiked(true);
+    }
+
+    getInitialLikes();
+  }, []);
+
+  const handleLikeClick = async () => {
     setIsClicked(true);
+    setTimeout(() => setIsClicked(false), 200);
 
-    setTimeout(() => {
-      setIsClicked(false);
-    }, 300);
+    if (hasLiked) {
+      localStorage.removeItem("Jiyeon_profile_liked");
+      setHasLiked(false);
+
+      const updatedLikeCount = like - 1 < 0 ? 0 : like - 1;
+      setLike(updatedLikeCount);
+
+      try {
+        const { error } = await supabase
+          .from("likes")
+          .update({ count: updatedLikeCount })
+          .eq("id", 1);
+
+        if (error) throw error;
+      } catch (err) {
+        alert("좋아요 취소 반영 실패");
+      }
+    } else {
+      localStorage.setItem("Jiyeon_profile_liked", "true");
+      setHasLiked(true);
+
+      setIsClicked(true);
+      setTimeout(() => {
+        setIsClicked(false);
+      }, 200);
+
+      const updatedLikeCount = like + 1;
+      setLike(updatedLikeCount);
+
+      try {
+        const { error } = await supabase
+          .from("likes")
+          .update({ count: updatedLikeCount })
+          .eq("id", 1);
+
+        if (error) throw error;
+      } catch (err) {
+        alert("DB 업데이트에 실패했습니다.", err);
+      }
+    }
   };
 
   return (
@@ -27,7 +91,11 @@ function Profile() {
           </P.Photo>
           <P.Name>
             <h2>김지연</h2>
-            <P.LikeButton onClick={handleLikeClick} $isClicked={isClicked}>
+            <P.LikeButton
+              onClick={handleLikeClick}
+              $isClicked={isClicked || hasLiked}
+              disabled={hasLiked}
+            >
               ♥<span> {like}</span>
             </P.LikeButton>
           </P.Name>
